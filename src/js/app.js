@@ -1,36 +1,30 @@
 /* eslint-disable no-console */
 // TODO: write code here
 import {
-  Character, Bowman, Swordsman, Magician, Undead, Zombie, Daemon,
+  Bowman,
 } from './Character';
 
 console.log('app.js bundled');
 
-const obj = new Character({
-  name: 'Персонаж',
-  health: 100,
-});
-console.table(obj);
+const obj = new Bowman({ name: 'Лучник', health: 10, level: 80 });
+console.log('Oblect created:');
+console.table(obj.curProps());
 
-const obj1 = new Bowman({ name: 'Лучник', health: 10, level: 80 });
-obj1.levelUp();
-console.table(obj1);
+obj.levelUp();
+console.log('Oblect levelUp:');
+console.table(obj.curProps());
 
-obj1.powerMode = true;
-console.table(obj1);
+obj.powerMode = true;
+console.log('Oblect set powerMode:');
+console.table(obj.curProps());
 
+// eslint-disable-next-line no-plusplus
 for (let i = 1; i <= 3; i++) {
-  obj1.doAttack();
-  console.table(obj1);
+  obj.doAttack();
 }
+console.log('Oblect attacks 3 times:');
+console.table(obj.curProps());
 
-
-// console.table(new Swordsman({ name: 'Мечник', health: 100, level: 80 }));
-
-// console.table(new Magician({ name: 'Маг', health: 100, level: 80 }));
-
-// console.table(new Undead({ name: 'Маклауд', health: 100, level: 80 }));
-
-// console.table(new Zombie({ name: 'Зомби', health: 100, level: 80 }));
-
-// console.table(new Daemon({ name: 'Демон', health: 100, level: 80 }));
+obj.powerMode = true;
+console.log('Oblect set powerMode again:');
+console.table(obj.curProps());
